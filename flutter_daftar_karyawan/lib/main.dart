@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 250, 123, 222),
+        ),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -73,6 +75,80 @@ class MyHomePage extends StatelessWidget {
 
           return const Center(child: CircularProgressIndicator());
         },
+      ),
+    );
+  }
+}
+
+class KaryawanListScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Daftar Karyawan'),
+        backgroundColor: Color(0xFFE91E63),
+        elevation: 0,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFFFB6D9), // Pink muda
+              Color(0xFFF48FB1), // Pink sedang
+              Color(0xFFEC407A), // Pink gelap
+            ],
+          ),
+        ),
+        child: ListView(
+          padding: EdgeInsets.all(16),
+          children: [
+            _buildKaryawanCard('John Doe', 'Manager'),
+            _buildKaryawanCard('Jane Smith', 'Developer'),
+            _buildKaryawanCard('Michael Johnson', 'Designer'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildKaryawanCard(String nama, String posisi) {
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      elevation: 5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFFEC407A).withOpacity(0.3),
+              blurRadius: 8,
+              offset: Offset(0, 4),
+            ),
+          ],
+        ),
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              nama,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFFE91E63),
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              posisi,
+              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+            ),
+          ],
+        ),
       ),
     );
   }

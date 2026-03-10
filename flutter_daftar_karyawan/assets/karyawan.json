@@ -18,5 +18,15 @@
       "provinsi": "DKI Jakarta"
     },
     "hobi": ["menulis", "makan"]
+  },
+  {
+    "nama": "Noviana Engelica",
+    "umur": 20,
+    "alamat": {
+      "jalan": "Jl. Pink",
+      "kota": "Kota Pink",
+      "provinsi": "Pink Lovers"
+    },
+    "hobi": ["nonton", "tidur"]
   }
 ]
